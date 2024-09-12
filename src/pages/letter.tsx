@@ -18,33 +18,33 @@ function LetterPage() {
   
   const queryClient = useQueryClient();
 
- const { data } = useQuery<LetterType[]>({
-  queryKey: ['letters'],
-  queryFn: async (): Promise<LetterType[]> => {
-    const res = await fetch('https://tategb.apne2a.algorix.cloud/guestbook');
-    if (!res.ok) {
-      throw new Error('Network response was not ok');
+  const { data } = useQuery<LetterType[]>({
+    queryKey: ['letters'],
+    queryFn: async (): Promise<LetterType[]> => {
+      const res = await fetch('https://tategb.apne2a.algorix.cloud/guestbook');
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const result = await res.json();
+      return result as LetterType[];  // 명시적으로 데이터 타입을 지정
     }
-    const result = await res.json();
-    return result as LetterType[];  // 명시적으로 데이터 타입을 지정
-  }
-});
+  });
 
-// 데이터를 3개의 배열로 나누는 함수
-const splitDataIntoThree = (data: LetterType[]): [LetterType[], LetterType[], LetterType[]] => {
-  return data.reduce<[LetterType[], LetterType[], LetterType[]]>((acc, item, index) => {
-    acc[index % 3].push(item);  // 인덱스에 따라 3개의 배열에 순차적으로 아이템을 분배
-    return acc;
-  }, [[], [], []]);  // 초기값은 빈 배열 3개
-};
+  // 데이터를 3개의 배열로 나누는 함수
+  const splitDataIntoThree = (data: LetterType[]): [LetterType[], LetterType[], LetterType[]] => {
+    return data.reduce<[LetterType[], LetterType[], LetterType[]]>((acc, item, index) => {
+      acc[index % 3].push(item);  // 인덱스에 따라 3개의 배열에 순차적으로 아이템을 분배
+      return acc;
+    }, [[], [], []]);  // 초기값은 빈 배열 3개
+  };
 
-// data 상태가 업데이트되면 데이터를 3개의 배열로 나눔
-useEffect(() => {
-  if (data && data.length > 0) {
-    const split = splitDataIntoThree(data);
-    setSplitData(split);  // 3개의 배열로 나눈 데이터를 상태로 저장
-  }
-},[data]);
+  // data 상태가 업데이트되면 데이터를 3개의 배열로 나눔
+  useEffect(() => {
+    if (data && data.length > 0) {
+      const split = splitDataIntoThree(data);
+      setSplitData(split);  // 3개의 배열로 나눈 데이터를 상태로 저장
+    }
+  },[data]);
 
   const submit = async () => {
     if(name === '' || content === '') {

@@ -4,7 +4,7 @@
       transform: translateX(0%);
     }
     100% {
-      transform: translateX(20%);
+      transform: translateX(100%);
     }
   }
   
@@ -13,7 +13,7 @@
       transform: translateX(0%);
     }
     100% {
-      transform: translateX(-20%);
+      transform: translateX(-100%);
     }
   }
   
@@ -47,10 +47,10 @@
   
   /* 첫 번째와 세 번째 슬라이드 - 오른쪽으로 */
   .slide-1, .slide-3 {
-    animation: slideRight 60s linear infinite;
+    animation: slideRight 40s linear infinite;
   }
   
   /* 두 번째 슬라이드 - 왼쪽으로 */
   .slide-2 {
-    animation: slideLeft 60s linear infinite;
+    animation: slideLeft 40s linear infinite;
   }
