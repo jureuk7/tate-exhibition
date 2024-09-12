@@ -1,0 +1,29 @@
+.container {
+    padding-top: 70px;
+    padding-left: 70px;
+    padding-right: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    width: 320px;
+    height: 62px;
+    border: 3px solid white;
+    border-radius: 31px;
+    background-color: transparent;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.clickable {
+    cursor: pointer;
+    &:hover {
+        filter: brightness(0.8);
+    }
+}

@@ -1,0 +1,25 @@
+.credits {
+    color: #FFF;
+    text-align: center;
+    font-family: "IBM Plex Mono";
+    font-size: 15.396px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.right {
+    display: flex;
+    gap:20px;
+    align-items: center;
+}
+
+.container {
+    padding-bottom: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end
+}

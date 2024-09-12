@@ -1,0 +1,56 @@
+/* 슬라이드 애니메이션 */
+@keyframes slideRight {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(20%);
+    }
+  }
+  
+  @keyframes slideLeft {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-20%);
+    }
+  }
+  
+  /* 공통 슬라이드 스타일 */
+
+  .slide-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    overflow: hidden;
+  }
+
+  .slide {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    gap:30px;
+  }
+  
+  .slide-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+  }
+  
+  /* 첫 번째와 세 번째 슬라이드 - 오른쪽으로 */
+  .slide-1, .slide-3 {
+    animation: slideRight 60s linear infinite;
+  }
+  
+  /* 두 번째 슬라이드 - 왼쪽으로 */
+  .slide-2 {
+    animation: slideLeft 60s linear infinite;
+  }
